@@ -19,3 +19,5 @@ if check == 'c':
 	subprocess.call("ifconfig", shell=True)
 elif check == 'q':
 	exit
+	
+	
