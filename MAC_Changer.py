@@ -2,21 +2,20 @@
 
 import subprocess
 
-print('\n\nBelow is the list of Network Interfaces in your device with their properties listed below them: \n')
+print('\nBelow is the list of Network Interfaces in your device with their properties listed below them: \n')
 
 subprocess.call("ifconfig", shell=True)
 
-interface = input("Enter the network interface you want to change name of: ")
-new_MAC = input("\nEnter new MAC address for the selected inteface: ")
+interface = input("Enter the name of desired Network Interface: ")
+new_MAC = input(f"\nEnter new MAC address for {interface}: ")
 
 subprocess.run(f"ifconfig {interface} down", shell=True)
 subprocess.run(f"ifconfig {interface} hw ether {new_MAC}", shell=True)
 subprocess.run(f"ifconfig {interface} up", shell=True)
 
-check = input("To check the MAC address of the desired interface press c and to quit press q: ")
+check = input("\nTo check the MAC address press c:\nTo quit press q:\n")
 
-if check == c:
+if check == 'c':
 	subprocess.call("ifconfig", shell=True)
-else:
-	break
-
+elif check == 'q':
+	exit
