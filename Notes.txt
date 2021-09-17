@@ -47,6 +47,7 @@ It contains no. of functions which allow us to execute system commands(respectiv
 
 Sytnax:
 	import subprocess
-	subprocess.call("COMMAND", Shell = true)
+	subprocess.call("COMMAND", Shell = true) [call function for python2][use run for python3]
+	
 
 
