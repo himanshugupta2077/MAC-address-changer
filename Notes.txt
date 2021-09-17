@@ -1,0 +1,52 @@
+MAC: Media Access control
+	- Permanent
+	- Physical
+	- Unique 
+	- Every network device has a MAC address, assinged by the Machine Manufacturer.
+	- used to identify devices and transfer data between them
+	- each packet in network has
+		- source MAC
+		- destination MAC
+		
+Changing MAC address:
+	- increases anonymity  
+	- impersonate other devices
+		- bypass filters
+		- access restricted data
+		
+Practical:
+
+1. Use 'ifconfig' command to to list all network interfaces on our device and their network properties(including IP and MAC address)
+[if command not found use: 'sudo apt-get install net-tools' and try 'ifconfig' again]
+	ifconfig
+
+2. Disable the network interface of which you want to change MAC address of:
+	ifconfig 'network interface name' down
+	
+3. We want to modify the option 'ether' which contains the MAC address of the interface:
+	ifconfig 'network interface name' hw ether 'new MAC address'
+	
+4. Enable the interface:
+	ifconfig 'network interface name' up
+	
+5. Check the MAC address again of the network interface using 'ifconfig':
+	ifconfig
+	
+Example:
+
+1:	ifconfig
+2:	ifconfig wlp3s0 down
+3:	ifconfig wlp3s0 hw ether 11:22:33:44:55:66
+4:	ifconfig wlp3s0 up
+5:	ifconfig
+
+We are making a python program that will do all this for us with extra features. For that we want python to execute linux commands and for that we use a module called 'Subprocess'.
+
+Subprocess can execute linux as well as all system commands.
+It contains no. of functions which allow us to execute system commands(respective to OS).
+
+Sytnax:
+	import subprocess
+	subprocess.call("COMMAND", Shell = true)
+
+
