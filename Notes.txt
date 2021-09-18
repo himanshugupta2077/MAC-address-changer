@@ -30,7 +30,7 @@ Practical:
 	ifconfig 'network interface name' up
 	
 5. Check the MAC address again of the network interface using 'ifconfig':
-	ifconfig
+	ifconfig 'network interface name'
 	
 Example:
 
@@ -48,6 +48,63 @@ It contains no. of functions which allow us to execute system commands(respectiv
 Sytnax:
 	import subprocess
 	subprocess.call("COMMAND", Shell = true) [call function for python2][use run for python3]
-	
+
+We made the program as:
+
+#!/usr/bin/env python
+
+import subprocess
+
+print('\nBelow is the list of Network Interfaces in your device with their properties listed below them: \n')
+
+subprocess.call("ifconfig", shell=True)
+
+interface = input("Enter Network Interface > ")
+new_MAC = input(f"\nNew MAC address for {interface} > ")
+
+print(f"\n[+]Changing MAC Adress of {interface} to {new_MAC}")
+
+subprocess.run(f"ifconfig {interface} down", shell=True)
+subprocess.run(f"ifconfig {interface} hw ether {new_MAC}", shell=True)
+subprocess.run(f"ifconfig {interface} up", shell=True)
+
+check = input("\nTo check the MAC address press c\nTo quit press q\n\n > ")
+
+if check == 'c':
+	subprocess.call(f"\nifconfig {interface}", shell=True)
+elif check == 'q':
+	exit()
+
+After making the program, we realize that the input mechanism is flawd because it can be hijacked with using multiple inputs with ;
+
+For example:
+
+if we input wlan0;ls; in input it will run all these command.
+
+To secure the code we use list in input, like this:
+
+subprocess.run(["ifconfig", interface, "down"])
+subprocess.run(["ifconfig", interface, "hw", "ether", new_MAC])
+subprocess.run(["ifconfig", interface, "up"])
+
+Now to improve our program further, we cna use 'optparse' module, it allows us to take user input in our code as arguement and use it in our code.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
