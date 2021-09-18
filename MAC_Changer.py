@@ -23,11 +23,6 @@ subprocess.call("ifconfig", shell=True)
 
 interface = input("Enter Network Interface > ")
 new_MAC = input(f"\nNew MAC address for {interface} > ")
-<<<<<<< HEAD
-
-print(f"Changing MAC Adress of {interface} to {new_MAC}")
-=======
->>>>>>> 598a55c314d84b0f9c2ce6d99cf41d223f9b0f4e
 
 print(f"\n[+]Changing MAC Address of {interface} to {new_MAC}")
 
@@ -35,11 +30,4 @@ subprocess.run(["ifconfig", interface, "down"])
 subprocess.run(["ifconfig", interface, "hw", "ether", new_MAC])
 subprocess.run(["ifconfig", interface, "up"])
 
-<<<<<<< HEAD
-if check == 'c':
-	subprocess.call("ifconfig", shell=True)
-elif check == 'q':
-	exit()
-=======
 print(f"[+]Changed MAC Address of {interface} to {new_MAC}")
->>>>>>> 598a55c314d84b0f9c2ce6d99cf41d223f9b0f4e
