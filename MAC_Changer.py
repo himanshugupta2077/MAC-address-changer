@@ -18,13 +18,13 @@ parser.add_option("-m", "--mac" ,dest = "new_MAC", help = "New MAC Address for t
 #returns to set of information: I is options, II is args. We use 2 new variables to store them in order.
 (options, arguements) = parser.parse_args()
 
-print('\n--> List of Network Interfaces: \n')
-subprocess.call("ifconfig", shell=True)
+#print('\n--> List of Network Interfaces: \n')
+#subprocess.call("ifconfig", shell=True)
 
-interface = input("Enter Network Interface > ")
-new_MAC = input(f"\nNew MAC address for {interface} > ")
+interface = options.interface
+new_MAC = options.new_MAC
 
-print(f"\n[+]Changing MAC Address of {interface} to {new_MAC}")
+print(f"[+]Changing MAC Address of {interface} to {new_MAC}")
 
 subprocess.run(["ifconfig", interface, "down"])
 subprocess.run(["ifconfig", interface, "hw", "ether", new_MAC])

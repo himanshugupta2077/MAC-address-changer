@@ -87,8 +87,22 @@ subprocess.run(["ifconfig", interface, "down"])
 subprocess.run(["ifconfig", interface, "hw", "ether", new_MAC])
 subprocess.run(["ifconfig", interface, "up"])
 
-Now to improve our program further, we cna use 'optparse' module, it allows us to take user input in our code as arguement and use it in our code.
+Now to improve our program further, we cna use 'optparse' module, it allows us to take user input in our code as arguement and use it in our code like this:
 
+python3 MAC_Changer.py -i wlan0 -MAC 00:11:22:33:44:55
+
+To use optparse we will create an object(a new entity named 'parser', datatype: variable) which will store the values returned by a class named 'OptionParser'.
+
+Anything starting with capital letter in python is Class which is like rules or blueprint for the object(here 'parser')
+
+Class : Parent
+Object: Child
+
+object inherets the properties of class.
+
+We will tell object(parser) how to look for arguement and handle them
+
+dest stores value of interface
 
 
 
