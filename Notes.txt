@@ -81,7 +81,13 @@ For example:
 
 if we input wlan0;ls; in input it will run all these command.
 
-To secure the code we use list in input.
+To secure the code we use list in input, like this:
+
+subprocess.run(["ifconfig", interface, "down"])
+subprocess.run(["ifconfig", interface, "hw", "ether", new_MAC])
+subprocess.run(["ifconfig", interface, "up"])
+
+Now to improve our program further, we cna use 'optparse' module, it allows us to take user input in our code as arguement and use it in our code.
 
 
 

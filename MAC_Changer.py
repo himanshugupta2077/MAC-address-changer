@@ -1,23 +1,33 @@
 #!/usr/bin/env python
 
+#Subprocess can execute linux as well as all system commands.
+#It contains no. of functions which allow us to execute system commands(respective to OS).
 import subprocess
 
-print('\nBelow is the list of Network Interfaces in your device with their properties listed below them: \n')
+#Outparse allows us to take user input in our code as arguement and use it.[Command line arguements]
+import optparse
 
+#initializing a variable(object) parser which uses(inherits) properties of OptionParser class.
+parser = optparse.OptionParser()
+
+#adding options to parser using module 'add_option'
+parser.add_option("-i", "--interface" ,dest = "interface", help = "Interface to change it's MAC Address.")
+
+parser.add_option("-m", "--mac" ,dest = "new_MAC", help = "New MAC Address for the interface.")
+
+#returns to set of information: I is options, II is args. We use 2 new variables to store them in order.
+(options, arguements) = parser.parse_args()
+
+print('\n--> List of Network Interfaces: \n')
 subprocess.call("ifconfig", shell=True)
 
 interface = input("Enter Network Interface > ")
 new_MAC = input(f"\nNew MAC address for {interface} > ")
 
-print(f"\n[+]Changing MAC Adress of {interface} to {new_MAC}")
+print(f"\n[+]Changing MAC Address of {interface} to {new_MAC}")
 
-subprocess.run(f"ifconfig {interface} down", shell=True)
-subprocess.run(f"ifconfig {interface} hw ether {new_MAC}", shell=True)
-subprocess.run(f"ifconfig {interface} up", shell=True)
+subprocess.run(["ifconfig", interface, "down"])
+subprocess.run(["ifconfig", interface, "hw", "ether", new_MAC])
+subprocess.run(["ifconfig", interface, "up"])
 
-check = input("\nTo check the MAC address press c\nTo quit press q\n\n > ")
-
-if check == 'c':
-	subprocess.call(f"\nifconfig {interface}", shell=True)
-elif check == 'q':
-	exit()
+print(f"[+]Changed MAC Address of {interface} to {new_MAC}")
