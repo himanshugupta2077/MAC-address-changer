@@ -121,6 +121,20 @@ added return feature in function
 
 added if conditions for error handling
 
+next goal is to check wheather the mac address is changed successfully or not, we do this in 4 parts:
+	- execute and read ifconfig 'ether' part
+	- read mac address from it
+	- cross check it
+	- print appropriate message
+
+we use subprocess again, the function we use this time is: 'check_output'
+
+used new updated code to use check_output
+
+ifconfig_result = subprocess.check_output(["ifconfig", options.interface])
+ifconfig_result = ifconfig_result.decode('utf-8')
+print("\n", ifconfig_result)
+
 
 
 

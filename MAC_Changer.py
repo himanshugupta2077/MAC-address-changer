@@ -23,4 +23,10 @@ def change_mac(interface, new_mac):
 	print(f"[+]Changed MAC Address of {interface} to {new_mac}")
 
 options = get_arguements()
-change_mac(options.interface, options.new_mac)
+#change_mac(options.interface, options.new_mac)
+
+ifconfig_result = subprocess.check_output(["ifconfig", options.interface])
+ifconfig_result = ifconfig_result.decode('utf-8')
+print("\n", ifconfig_result)
+
+
