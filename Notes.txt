@@ -104,6 +104,22 @@ We will tell object(parser) how to look for arguement and handle them
 
 dest stores value of interface
 
+#Subprocess can execute linux as well as all system commands.
+#It contains no. of functions which allow us to execute system commands(respective to OS).
+
+#Outparse allows us to take user input in our code as arguement and use it.[Command line arguements]
+
+
+#initializing a variable(object) parser which uses(inherits) properties of OptionParser class.
+
+#adding options to parser using module 'add_option'
+
+#returns to set of information: I is options, II is args. We use 2 new variables to store them in order.
+
+added funtions in the code
+added return feature in function
+
+added if conditions for error handling
 
 
 
