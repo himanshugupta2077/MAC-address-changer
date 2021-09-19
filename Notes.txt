@@ -87,9 +87,53 @@ subprocess.run(["ifconfig", interface, "down"])
 subprocess.run(["ifconfig", interface, "hw", "ether", new_MAC])
 subprocess.run(["ifconfig", interface, "up"])
 
-Now to improve our program further, we cna use 'optparse' module, it allows us to take user input in our code as arguement and use it in our code.
+Now to improve our program further, we cna use 'optparse' module, it allows us to take user input in our code as arguement and use it in our code like this:
+
+python3 MAC_Changer.py -i wlan0 -MAC 00:11:22:33:44:55
+
+To use optparse we will create an object(a new entity named 'parser', datatype: variable) which will store the values returned by a class named 'OptionParser'.
+
+Anything starting with capital letter in python is Class which is like rules or blueprint for the object(here 'parser')
+
+Class : Parent
+Object: Child
+
+object inherets the properties of class.
+
+We will tell object(parser) how to look for arguement and handle them
+
+dest stores value of interface
+
+#Subprocess can execute linux as well as all system commands.
+#It contains no. of functions which allow us to execute system commands(respective to OS).
+
+#Outparse allows us to take user input in our code as arguement and use it.[Command line arguements]
 
 
+#initializing a variable(object) parser which uses(inherits) properties of OptionParser class.
+
+#adding options to parser using module 'add_option'
+
+#returns to set of information: I is options, II is args. We use 2 new variables to store them in order.
+
+added funtions in the code
+added return feature in function
+
+added if conditions for error handling
+
+next goal is to check wheather the mac address is changed successfully or not, we do this in 4 parts:
+	- execute and read ifconfig 'ether' part
+	- read mac address from it
+	- cross check it
+	- print appropriate message
+
+we use subprocess again, the function we use this time is: 'check_output'
+
+used new updated code to use check_output
+
+ifconfig_result = subprocess.check_output(["ifconfig", options.interface])
+ifconfig_result = ifconfig_result.decode('utf-8')
+print("\n", ifconfig_result)
 
 
 
