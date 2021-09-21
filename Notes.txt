@@ -135,6 +135,18 @@ ifconfig_result = subprocess.check_output(["ifconfig", options.interface])
 ifconfig_result = ifconfig_result.decode('utf-8')
 print("\n", ifconfig_result)
 
+now we want the specific mac address part form the string ifconfig_result, to do that we will use regex [regular expression]
+
+regex is a special sequence of characters that uses a search pattern to find a string or set of strings.
+py uses re module to use regex
+
+regex uses rules to search
+
+expression(rule) to find mac in the string: \w\w:\w\w:\w\w:\w\w:\w\w:\w\w
+
+succesfully worked.
+
+now if the interface doesnt have mac it'll return error, let's use if again to manage errors..
 
 
 
