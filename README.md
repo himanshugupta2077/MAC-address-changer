@@ -25,7 +25,7 @@ python3 MAC_Changer.py -i [Network interface] -m [New MAC address]
 ```
 and done!
 
-#### For more help: 
+##### For help: 
 ```sh
 python3 MAC_Changer.py --help
 ```
