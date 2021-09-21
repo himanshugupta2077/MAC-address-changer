@@ -4,7 +4,6 @@ MAC Address changer is a mini-project written in python to change the MAC addres
 It is compatible with 'Linux' machines only. 
 
 ## Features
-- Requires python3.x only
 - Only one line command to execute
 - Error detection and help provided
 
