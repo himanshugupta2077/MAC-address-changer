@@ -10,9 +10,6 @@ Python Libraries Used:
 - [optparse] - To take user input in our code in a single line as an arguement.
 - [re] - We use regex to search and store MAC Address of requested network interface into a string.
 
-## Installation
-MAC Address changer only requires python3.x and later version to run.
-
 ## Usage
 
 ```sh
